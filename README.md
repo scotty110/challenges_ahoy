@@ -1,8 +1,11 @@
 # Challenge
 From inside the `scripts` folder run with `python ./main.py`
 
-## Install Deps with
+## Enviroment
+Quick install run `create_env.sh`
+
+### Install Deps with
 conda env create -f environment.yaml
 
-## Use enviroment
+### Use enviroment
 conda activate pattern
