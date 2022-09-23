@@ -34,7 +34,7 @@ def filter_pos(a,b) -> bool:
 def soil_weights(hzdept:float, hzdepb:float, comppct:float) -> float:
     return ( abs(hzdept - hzdepb) / hzdepb ) * (comppct/100.)
 
-#def get_fips_code(lat:float, lon:float):
+
 def get_fips_code(lonlat:tuple):
     lonlat = lonlat[0]
     lon = lonlat[0]
@@ -55,7 +55,7 @@ def challenge_1(crop_csv:str, output_dir:str) -> str:
         - crop_csv (str): Path to CSV containing the crop data
         - output_dir (str): path to save the csv to
     '''
-    output_path = join(output_dir, '2021_crop.csv') 
+    output_path = join(output_dir, 'crop.csv') 
     
     df = get_csv( crop_csv )
     df = df[ df['year'] == 2021 ]
@@ -184,23 +184,20 @@ def challenge_4(weather_path:str, crop_path:str, output_dir:str) -> str:
 
 
 if __name__=='__main__':
-    out_dir = './output_files'
+    out_dir = './outputs'
     make_dir(out_dir)
 
-    crop_csv = './data/crop.csv'
-    #print(challenge_1(crop_csv, out_dir))
+    crop_csv = './inputs/crop.csv'
+    print(challenge_1(crop_csv, out_dir))
 
-    spectral_csv = './data/spectral.csv'
-    #challenge_2(spectral_csv, out_dir)
+    spectral_csv = './inputs/spectral.csv'
+    challenge_2(spectral_csv, out_dir)
 
-    soil_csv = './data/soil.csv'
-    #challenge_3(soil_csv, out_dir)
+    soil_csv = './inputs/soil.csv'
+    challenge_3(soil_csv, out_dir)
 
-    weather_csv = './data/weather.csv'
+    weather_csv = './inputs/weather.csv'
     challenge_4(weather_csv, crop_csv, out_dir)
-
-    #a = (38.92884, -77.23744)
-    #print(get_fips_code(a[0],a[1]))
 
 
 
